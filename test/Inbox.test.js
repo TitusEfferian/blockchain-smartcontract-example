@@ -3,19 +3,16 @@ const ganache = require('ganache-cli');//local etherum network,just for developm
 const Web3 = require('web3');//class
 const web3 = new Web3(ganache.provider());//instance
 
-beforeEach(() => {
+let accounts;
+beforeEach(async () => {
     //get a list of all accounts
-    web3.eth.getAccounts()
-        .then(fetchedAccounts => {
-            console.log(fetchedAccounts);
-        });
-
+    accounts = await web3.eth.getAccounts();
     //use one of those account to deploy
 });
 
 describe('Inbox', () => {
     it('deploys a contract', () => {
-        
+        console.log(accounts);
     });
 });
 
